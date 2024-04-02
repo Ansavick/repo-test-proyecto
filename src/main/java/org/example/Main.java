@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.FileInputStream;
 import java.sql.*;
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -65,17 +66,22 @@ public class Main {
         properties.put("mail.smtp.host", "smtp.gmail.com");
         properties.put("mail.smtp.port", "587");
 
-        final String myAccountEmail = "anaplopez07@gmail.com";
-        final String password = "vklu ikbq rotf vpvm";
 
-        Session session = Session.getInstance(properties, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(myAccountEmail, password);
-            }
-        });
         try {
-            Message message = prepareMessage(session, myAccountEmail, "anaplopez07@gmail.com", finalMessage);
+            FileInputStream in = new FileInputStream("src/main/resources/secrets.properties");
+            properties.load(in);
+            in.close();
+
+            final String myAccountEmail = properties.getProperty("MY_ACCOUNT_EMAIL");
+            final String password = properties.getProperty("MY_ACCOUNT_PASSWORD");
+
+            Session session = Session.getInstance(properties, new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(myAccountEmail, password);
+                }
+            });
+            Message message = prepareMessage(session, myAccountEmail, myAccountEmail, finalMessage);
             Transport.send(message);
             System.out.println("Mensaje enviado exitosamente");
         } catch (Exception e) {
