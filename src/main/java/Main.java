@@ -97,12 +97,11 @@ public class Main {
             htmlCode += "<p> Estos son los usuarios existentes en la base de datos: </p>";
             htmlCode += finalMessage;
             message.setContent(htmlCode, "text/html");
+            System.out.println("Mensaje creado");
             return message;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-
-
 }
