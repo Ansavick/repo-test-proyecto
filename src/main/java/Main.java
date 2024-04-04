@@ -96,7 +96,7 @@ public class Main {
             String htmlCode = "<h1>Hola</h1> <br/> <h2>Bienvenido!</h2>";
             htmlCode += "<p> Estos son los usuarios existentes en la base de datos: </p>";
             htmlCode += finalMessage;
-            htmlCode += "<p> Hasta pronto </p>";
+            htmlCode += "<p> Chau </p>";
             message.setContent(htmlCode, "text/html");
             return message;
         } catch (Exception e) {
