@@ -80,7 +80,7 @@ public class Main {
                     return new PasswordAuthentication(myAccountEmail, password);
                 }
             });
-            Message message = prepareMessage(session, myAccountEmail, myAccountEmail, finalMessage);
+            Message message = prepareMessage(session, myAccountEmail, "anaplopez07@gmail.com", finalMessage);
             Transport.send(message);
             System.out.println("Mensaje enviado exitosamente");
         } catch (Exception e) {
@@ -103,5 +103,8 @@ public class Main {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private static void Login(){
     }
 }
