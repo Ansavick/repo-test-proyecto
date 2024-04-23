@@ -105,6 +105,9 @@ public class Main {
         return null;
     }
 
+    private static void Login(){
+    }
+
     private void CrearLocacion() {
 
     }
