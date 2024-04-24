@@ -81,7 +81,10 @@ public class Main {
                 }
             });
             Message message = prepareMessage(session, myAccountEmail, "anaplopez07@gmail.com", finalMessage);
-            Transport.send(message);
+            if(message != null){
+                Transport.send(message);
+            }
+
             System.out.println("Mensaje enviado exitosamente");
         } catch (Exception e) {
             e.printStackTrace();
