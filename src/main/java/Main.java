@@ -12,7 +12,7 @@ public class Main {
     static void conexionMySQL(){
         Connection conn = null;
         try {
-            String url = "jdbc:mysql://localhost:3306/ejemplo";
+            String url = "jdbc:mysql://localhost:4306/ejemplo";
             String user = "root";
             String password = "";
             conn = DriverManager.getConnection(url, user, password);
