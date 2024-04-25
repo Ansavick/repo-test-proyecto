@@ -18,6 +18,7 @@ public class Main {
             conn = DriverManager.getConnection(url, user, password);
             System.out.println("Conexión exitosa a la base de datos");
             System.out.println("Prueba con sabrina");
+            System.out.println("Prueba con chuvik");
             if (conn != null) {
                 operationDB(conn);
             } else {
