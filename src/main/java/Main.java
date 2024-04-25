@@ -12,12 +12,12 @@ public class Main {
     static void conexionMySQL(){
         Connection conn = null;
         try {
-            String url = "jdbc:mysql://localhost:3306/ejemplo";
+            String url = "jdbc:mysql://localhost:4306/ejemplo";
             String user = "root";
             String password = "";
             conn = DriverManager.getConnection(url, user, password);
             System.out.println("Conexión exitosa a la base de datos");
-
+            System.out.println("Prueba con sabrina");
             if (conn != null) {
                 operationDB(conn);
             } else {
@@ -81,7 +81,10 @@ public class Main {
                 }
             });
             Message message = prepareMessage(session, myAccountEmail, "anaplopez07@gmail.com", finalMessage);
-            Transport.send(message);
+            if(message != null){
+                Transport.send(message);
+            }
+
             System.out.println("Mensaje enviado exitosamente");
         } catch (Exception e) {
             e.printStackTrace();
@@ -106,5 +109,6 @@ public class Main {
     }
 
     private static void Login(){
+        //hola probando
     }
 }
