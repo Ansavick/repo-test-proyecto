@@ -88,13 +88,14 @@ public class Main {
 
             System.out.println("Mensaje enviado exitosamente");
         } catch (Exception e) {
+            System.out.println("Error: " + e);
             e.printStackTrace();
         }
     }
 
     private static Message prepareMessage(Session session, String myAccountEmail, String recipient, StringBuilder finalMessage) {
         try {
-            Message message = new MimeMessage(session);
+            Message message = new  MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
             message.setSubject("Asunto del correo");
